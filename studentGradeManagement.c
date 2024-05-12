@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
+//Creating a structure variable to store the record of students
 typedef struct studentGradeManagement{
     char name[100];
     int class;
@@ -9,8 +10,11 @@ typedef struct studentGradeManagement{
 } studentGradeManagement;
 
 int main(){
+
+    //Declaring a variable student of type studentGradeManagement
     studentGradeManagement student;
 
+    //Prompting input from user
     printf("Enter name : ");
     fgets(student.name, 100, stdin);
 
@@ -26,24 +30,31 @@ int main(){
     }
 
     int totalMarks = 0;
+
+    //Calculating total marks of the students
     for (int i = 0; i < 5; i++)
         totalMarks = totalMarks + student.marks[i];
 
+    //Calculating average marks of the students
     float averageMarks = (float) totalMarks / 5;
 
+    //Calculating percentage iof the students
     float percentage =  ((float)totalMarks / 500) * 100;
 
     int highestMarks = student.marks[0];
     int lowestMarks = student.marks[0];
 
     for(int i = 0; i < 5; i++){
+        //Calculating the highest marks
         if (student.marks[i] > highestMarks)
             highestMarks = student.marks[i];
 
+        //Calculating the lowest marks
         if (student.marks[i] < lowestMarks)
             lowestMarks = student.marks[i];
     }
 
+    //Displaying the output
     printf("\n----------------------------------------------------\n");
     printf("\nName: %s\n", student.name);
     printf("Class: %d\n", student.class);
